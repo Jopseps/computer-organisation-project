@@ -25,17 +25,17 @@ arr:
 	.size	median, 4
 median:
 	.zero	4
-	.globl	min_v
+	.globl	minV
 	.align	2
-	.type	min_v, @object
-	.size	min_v, 4
-min_v:
+	.type	minV, @object
+	.size	minV, 4
+minV:
 	.zero	4
-	.globl	max_v
+	.globl	maxV
 	.align	2
-	.type	max_v, @object
-	.size	max_v, 4
-max_v:
+	.type	maxV, @object
+	.size	maxV, 4
+maxV:
 	.zero	4
 	.globl	swaps
 	.align	2
@@ -196,13 +196,13 @@ main:
 	lui	a5,%hi(arr)
 	addi	a5,a5,%lo(arr)
 	lw	a4,0(a5)
-	lui	a5,%hi(max_v)
-	sw	a4,%lo(max_v)(a5)
+	lui	a5,%hi(maxV)
+	sw	a4,%lo(maxV)(a5)
 	lui	a5,%hi(arr)
 	addi	a5,a5,%lo(arr)
 	lw	a4,104(a5)
-	lui	a5,%hi(min_v)
-	sw	a4,%lo(min_v)(a5)
+	lui	a5,%hi(minV)
+	sw	a4,%lo(minV)(a5)
 	li	a5,0
 	mv	a0,a5
 	lw	ra,44(sp)

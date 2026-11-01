@@ -75,17 +75,17 @@ main:
 	lui	a3,%hi(median)
 	sw	a4,%lo(median)(a3)
 	lw	a3,0(a5)
-	lui	a4,%hi(max_v)
-	sw	a3,%lo(max_v)(a4)
+	lui	a4,%hi(maxV)
+	sw	a3,%lo(maxV)(a4)
 	lw	a4,104(a5)
-	lui	a5,%hi(min_v)
-	sw	a4,%lo(min_v)(a5)
+	lui	a5,%hi(minV)
+	sw	a4,%lo(minV)(a5)
 	li	a0,0
 	ret
 	.size	main, .-main
 	.globl	swaps
-	.globl	max_v
-	.globl	min_v
+	.globl	maxV
+	.globl	minV
 	.globl	median
 	.globl	arr
 	.globl	SID
@@ -102,13 +102,13 @@ arr:
 	.size	swaps, 4
 swaps:
 	.zero	4
-	.type	max_v, @object
-	.size	max_v, 4
-max_v:
+	.type	maxV, @object
+	.size	maxV, 4
+maxV:
 	.zero	4
-	.type	min_v, @object
-	.size	min_v, 4
-min_v:
+	.type	minV, @object
+	.size	minV, 4
+minV:
 	.zero	4
 	.type	median, @object
 	.size	median, 4

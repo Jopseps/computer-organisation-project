@@ -6,10 +6,10 @@ SID:
 median:
     .space 4
     .align 2
-min_v:
+minV:
     .space 4
     .align 2
-max_v:
+maxV:
     .space 4
     .align 2
 swaps:
@@ -166,12 +166,12 @@ L_7:
     la a5,arr
     mv a5,a5
     lw a4,0(a5)
-    la a5,max_v
+    la a5,maxV
     sw a4,0(a5)
     la a5,arr
     mv a5,a5
     lw a4,104(a5)
-    la a5,min_v
+    la a5,minV
     sw a4,0(a5)
     li a5,0
     mv a0,a5
