@@ -28,8 +28,8 @@ Disassembly of section .text:
   400048:	02112623          	sw	x1,44(x2)
   40004c:	02812423          	sw	x8,40(x2)
   400050:	03010413          	addi	x8,x2,48
-  400054:	0012f7b7          	lui	x15,0x12f
-  400058:	bc378793          	addi	x15,x15,-1085 # 12ebc3 <should_swap-0x2d143d>
+  400054:	2a18e7b7          	lui	x15,0x2a18e
+  400058:	dc378793          	addi	x15,x15,-573 # 2a18ddc3 <__global_pointer$+0x1a17d5c3>
   40005c:	fef42623          	sw	x15,-20(x8)
   400060:	fe042423          	sw	x0,-24(x8)
   400064:	0700006f          	jal	x0,4000d4 <main+0x90>

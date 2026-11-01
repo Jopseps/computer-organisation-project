@@ -19,8 +19,8 @@ main:
 	addi	a7,a7,%lo(.LANCHOR0)
 	addi	t3,a7,108
 	mv	a2,a7
-	li	a4,1241088
-	addi	a4,a4,-1085
+	li	a4,706273280
+	addi	a4,a4,-573
 	li	a6,1662976
 	addi	a6,a6,1549
 	li	a0,1013903360
@@ -119,6 +119,6 @@ median:
 	.type	SID, @object
 	.size	SID, 4
 SID:
-	.word	1240003
+	.word	706272707
 	.ident	"GCC: (Arch Linux Repositories) 15.2.0"
 	.section	.note.GNU-stack,"",@progbits

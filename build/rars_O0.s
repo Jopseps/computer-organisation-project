@@ -1,7 +1,7 @@
 .data
     .align 2
 SID:
-    .word 1240003
+    .word 706272707
     .align 2
 median:
     .space 4
@@ -46,8 +46,8 @@ main:
     sw ra,44(sp)
     sw s0,40(sp)
     addi s0,sp,48
-    li a5,1241088
-    addi a5,a5,-1085
+    li a5,706273280
+    addi a5,a5,-573
     sw a5,-20(s0)
     sw zero,-24(s0)
     j L_5
