@@ -1,7 +1,7 @@
 /* Yusuf Mert Turan, 5001240003, G4 */
 #define N 27
 
-const int SID = 1240003;
+const int SID = 706272707;
 int arr[N];
 int median, minV, maxV, swaps;
 
