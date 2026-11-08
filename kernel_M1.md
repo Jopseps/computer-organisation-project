@@ -1,6 +1,6 @@
 # Kernel (M1) — G4, RV32IM, -O0
 
-Seçilen iterasyon: i = 0, j = 0 (arr[0] = 464, arr[1] = 324 → yer değiştirme yok).
+Seçilen iterasyon: i = 0, j = 0 (arr[0] = 575, arr[1] = 383 → yer değiştirme yok).
 C satırları: 24 (çağrı ve if), 8–13 (should_swap). Adresler `build/objdump_O0.txt` ile aynı.
 
 | # | Adres | Instruction | Kategori | PC sonrası |
