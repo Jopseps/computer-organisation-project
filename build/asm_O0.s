@@ -10,7 +10,7 @@
 	.type	SID, @object
 	.size	SID, 4
 SID:
-	.word	706272707
+	.word	1240003
 	.globl	arr
 	.bss
 	.align	2
@@ -25,17 +25,17 @@ arr:
 	.size	median, 4
 median:
 	.zero	4
-	.globl	minV
+	.globl	min_v
 	.align	2
-	.type	minV, @object
-	.size	minV, 4
-minV:
+	.type	min_v, @object
+	.size	min_v, 4
+min_v:
 	.zero	4
-	.globl	maxV
+	.globl	max_v
 	.align	2
-	.type	maxV, @object
-	.size	maxV, 4
-maxV:
+	.type	max_v, @object
+	.size	max_v, 4
+max_v:
 	.zero	4
 	.globl	swaps
 	.align	2
@@ -72,12 +72,12 @@ should_swap:
 	.globl	main
 	.type	main, @function
 main:
-	addi	sp,sp,-48
-	sw	ra,44(sp)
-	sw	s0,40(sp)
-	addi	s0,sp,48
-	li	a5,706273280
-	addi	a5,a5,-573
+	addi	sp,sp,-32
+	sw	ra,28(sp)
+	sw	s0,24(sp)
+	addi	s0,sp,32
+	li	a5,1241088
+	addi	a5,a5,-1085
 	sw	a5,-20(s0)
 	sw	zero,-24(s0)
 	j	.L5
@@ -142,15 +142,15 @@ main:
 	lw	a5,-32(s0)
 	slli	a5,a5,2
 	add	a5,a4,a5
-	lw	a5,0(a5)
-	sw	a5,-36(s0)
+	lw	a4,0(a5)
 	lw	a5,-32(s0)
 	addi	a5,a5,1
-	lui	a4,%hi(arr)
-	addi	a4,a4,%lo(arr)
+	lui	a3,%hi(arr)
+	addi	a3,a3,%lo(arr)
 	slli	a5,a5,2
-	add	a5,a4,a5
-	lw	a4,0(a5)
+	add	a5,a3,a5
+	lw	a5,0(a5)
+	xor	a4,a4,a5
 	lui	a5,%hi(arr)
 	addi	a3,a5,%lo(arr)
 	lw	a5,-32(s0)
@@ -163,7 +163,40 @@ main:
 	addi	a4,a4,%lo(arr)
 	slli	a5,a5,2
 	add	a5,a4,a5
-	lw	a4,-36(s0)
+	lw	a3,0(a5)
+	lui	a5,%hi(arr)
+	addi	a4,a5,%lo(arr)
+	lw	a5,-32(s0)
+	slli	a5,a5,2
+	add	a5,a4,a5
+	lw	a4,0(a5)
+	lw	a5,-32(s0)
+	addi	a5,a5,1
+	xor	a4,a3,a4
+	lui	a3,%hi(arr)
+	addi	a3,a3,%lo(arr)
+	slli	a5,a5,2
+	add	a5,a3,a5
+	sw	a4,0(a5)
+	lui	a5,%hi(arr)
+	addi	a4,a5,%lo(arr)
+	lw	a5,-32(s0)
+	slli	a5,a5,2
+	add	a5,a4,a5
+	lw	a4,0(a5)
+	lw	a5,-32(s0)
+	addi	a5,a5,1
+	lui	a3,%hi(arr)
+	addi	a3,a3,%lo(arr)
+	slli	a5,a5,2
+	add	a5,a3,a5
+	lw	a5,0(a5)
+	xor	a4,a4,a5
+	lui	a5,%hi(arr)
+	addi	a3,a5,%lo(arr)
+	lw	a5,-32(s0)
+	slli	a5,a5,2
+	add	a5,a3,a5
 	sw	a4,0(a5)
 	lui	a5,%hi(swaps)
 	lw	a5,%lo(swaps)(a5)
@@ -189,25 +222,24 @@ main:
 	ble	a4,a5,.L11
 	lui	a5,%hi(arr)
 	addi	a5,a5,%lo(arr)
-	lw	a5,52(a5)
-	andi	a4,a5,1023
+	lw	a4,52(a5)
 	lui	a5,%hi(median)
 	sw	a4,%lo(median)(a5)
 	lui	a5,%hi(arr)
 	addi	a5,a5,%lo(arr)
 	lw	a4,0(a5)
-	lui	a5,%hi(maxV)
-	sw	a4,%lo(maxV)(a5)
+	lui	a5,%hi(max_v)
+	sw	a4,%lo(max_v)(a5)
 	lui	a5,%hi(arr)
 	addi	a5,a5,%lo(arr)
 	lw	a4,104(a5)
-	lui	a5,%hi(minV)
-	sw	a4,%lo(minV)(a5)
+	lui	a5,%hi(min_v)
+	sw	a4,%lo(min_v)(a5)
 	li	a5,0
 	mv	a0,a5
-	lw	ra,44(sp)
-	lw	s0,40(sp)
-	addi	sp,sp,48
+	lw	ra,28(sp)
+	lw	s0,24(sp)
+	addi	sp,sp,32
 	jr	ra
 	.size	main, .-main
 	.ident	"GCC: (Arch Linux Repositories) 15.2.0"

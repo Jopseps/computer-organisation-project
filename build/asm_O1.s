@@ -19,8 +19,8 @@ main:
 	addi	a7,a7,%lo(.LANCHOR0)
 	addi	t3,a7,108
 	mv	a2,a7
-	li	a4,706273280
-	addi	a4,a4,-573
+	li	a4,1241088
+	addi	a4,a4,-1085
 	li	a6,1662976
 	addi	a6,a6,1549
 	li	a0,1013903360
@@ -49,11 +49,11 @@ main:
 	addi	a5,a5,4
 	beq	a5,a2,.L11
 .L6:
-	lw	a4,0(a5)
-	lw	a3,4(a5)
-	bge	a4,a3,.L5
-	sw	a3,0(a5)
-	sw	a4,4(a5)
+	lw	a3,0(a5)
+	lw	a4,4(a5)
+	bge	a3,a4,.L5
+	sw	a3,4(a5)
+	sw	a4,0(a5)
 	addi	a1,a1,1
 	mv	a0,a6
 	j	.L5
@@ -70,22 +70,21 @@ main:
 .L8:
 	lui	a5,%hi(.LANCHOR0)
 	addi	a5,a5,%lo(.LANCHOR0)
-	lw	a4,52(a5)
-	andi	a4,a4,1023
-	lui	a3,%hi(median)
-	sw	a4,%lo(median)(a3)
+	lw	a3,52(a5)
+	lui	a4,%hi(median)
+	sw	a3,%lo(median)(a4)
 	lw	a3,0(a5)
-	lui	a4,%hi(maxV)
-	sw	a3,%lo(maxV)(a4)
+	lui	a4,%hi(max_v)
+	sw	a3,%lo(max_v)(a4)
 	lw	a4,104(a5)
-	lui	a5,%hi(minV)
-	sw	a4,%lo(minV)(a5)
+	lui	a5,%hi(min_v)
+	sw	a4,%lo(min_v)(a5)
 	li	a0,0
 	ret
 	.size	main, .-main
 	.globl	swaps
-	.globl	maxV
-	.globl	minV
+	.globl	max_v
+	.globl	min_v
 	.globl	median
 	.globl	arr
 	.globl	SID
@@ -102,13 +101,13 @@ arr:
 	.size	swaps, 4
 swaps:
 	.zero	4
-	.type	maxV, @object
-	.size	maxV, 4
-maxV:
+	.type	max_v, @object
+	.size	max_v, 4
+max_v:
 	.zero	4
-	.type	minV, @object
-	.size	minV, 4
-minV:
+	.type	min_v, @object
+	.size	min_v, 4
+min_v:
 	.zero	4
 	.type	median, @object
 	.size	median, 4
@@ -119,6 +118,6 @@ median:
 	.type	SID, @object
 	.size	SID, 4
 SID:
-	.word	706272707
+	.word	1240003
 	.ident	"GCC: (Arch Linux Repositories) 15.2.0"
 	.section	.note.GNU-stack,"",@progbits
