@@ -1,0 +1,38 @@
+/* Yusuf Mert Turan, 5001240003, G4 */
+#define N 27
+
+const int SID = 1240003;
+int arr[N];
+int median, min_v, max_v, swaps;
+
+int should_swap(int a, int b){
+    if(a < b){
+        return 1;
+    }
+    return 0;
+}
+
+int main(){
+    unsigned int x = SID;
+    for(int i = 0; i < N; i++){
+        x = 1664525 * x + 1013904223;
+        arr[i] = (x >> 16) % 1000;
+    }
+    
+    for(int i = 0; i < N - 1; i++){
+        for(int j = 0; j < N - 1 - i; j++){
+            if(should_swap(arr[j], arr[j + 1])){
+                arr[j] ^= arr[j + 1];
+                arr[j + 1] ^= arr[j];
+                arr[j] ^= arr[j + 1];
+                swaps++;
+            }
+        }
+    }
+
+    median = arr[(N - 1) / 2];
+    max_v = arr[0];
+    min_v = arr[N - 1];
+
+    return 0;
+}
